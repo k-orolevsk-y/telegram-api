@@ -279,6 +279,19 @@ class Client
             return false;
         };
     }
+    
+    protected static function getNewMessageQueryEvent(Closure $action)
+		{
+			return function (Update $update) use ($action) {
+				if(!$update->getMessage()) {
+					return true;
+				}
+
+				$reflectionAction = new ReflectionFunction($action);
+				$reflectionAction->invokeArgs([$update->getMessage()]);
+				return false;
+			};
+		}
 
     /**
      * Returns check function to handling the command.
@@ -396,6 +409,19 @@ class Client
             return !is_null($update->getPreCheckoutQuery());
         };
     }
+    
+    
+     /**
+     * Returns check function to have message
+     *
+     * @return Closure
+     */
+    protected static function getNewMessageQueryChecker()
+		{
+			return function (Update $update) {
+				return !is_null($update->getMessage());
+			};
+		}
 
     public function __call($name, array $arguments)
     {
