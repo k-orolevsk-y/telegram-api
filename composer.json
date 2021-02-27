@@ -1,5 +1,5 @@
 {
-    "name": "telegram-bot/api",
+    "name": "k-orolevsk-y/telegram-api",
     "description": "PHP Wrapper for Telegram Bot API",
     "keywords": [
         "php",
@@ -14,6 +14,12 @@
             "name": "Ilya Gusev",
             "email": "mail@igusev.ru",
             "homepage": "https://php-cat.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Kirill Korolevsky",
+            "email": "i@korolevsky.me",
+            "homepage": "https://korolevsky.me",
             "role": "Developer"
         }
     ],
